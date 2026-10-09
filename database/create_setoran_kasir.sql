@@ -1,0 +1,21 @@
+CREATE TABLE IF NOT EXISTS `setoran_kasir` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `tanggal_setoran` date NOT NULL,
+  `kasir_id` int(50) NOT NULL,
+  `total_transaksi` decimal(15,2) NOT NULL DEFAULT 0.00,
+  `jumlah_setoran` decimal(15,2) NOT NULL DEFAULT 0.00,
+  `selisih` decimal(15,2) NOT NULL DEFAULT 0.00,
+  `metode_setoran` varchar(30) NOT NULL DEFAULT 'cash',
+  `status` enum('DRAFT','DISETOR','DIVERIFIKASI','BATAL') NOT NULL DEFAULT 'DISETOR',
+  `keterangan` text DEFAULT NULL,
+  `created_by` int(50) DEFAULT NULL,
+  `updated_by` int(50) DEFAULT NULL,
+  `created_at` datetime NOT NULL DEFAULT current_timestamp(),
+  `updated_at` datetime DEFAULT NULL ON UPDATE current_timestamp(),
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `uk_setoran_tanggal_kasir` (`tanggal_setoran`, `kasir_id`),
+  KEY `idx_setoran_tanggal` (`tanggal_setoran`),
+  KEY `idx_setoran_kasir` (`kasir_id`),
+  KEY `idx_setoran_status` (`status`),
+  CONSTRAINT `fk_setoran_kasir_user` FOREIGN KEY (`kasir_id`) REFERENCES `users` (`id`) ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;

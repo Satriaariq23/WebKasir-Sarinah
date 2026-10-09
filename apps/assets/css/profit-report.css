@@ -1,0 +1,61 @@
+/**
+ * ==========================================================
+ *  FILE: assets/css/profit-report.css
+ *  DESCRIPTION: Stylesheet untuk Laporan Profit
+ *  AUTHOR: System
+ * ==========================================================
+ */
+
+/* Profit Cards */
+.profit-card {
+  border-radius: 10px;
+  transition: transform 0.2s;
+}
+
+.profit-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+}
+
+.profit-value {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #1e88e5;
+}
+
+.profit-label {
+  color: #666;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Filter Section */
+.filter-section {
+  background: #f8f9fa;
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+/* Detail Table */
+.detail-table {
+  background: white;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+/* Print Styles */
+@media print {
+  .toolbar,
+  .filter-section,
+  .btn,
+  .card-toolbar {
+    display: none !important;
+  }
+
+  .card {
+    box-shadow: none !important;
+    border: 1px solid #ddd !important;
+  }
+}

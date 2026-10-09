@@ -1,0 +1,27 @@
+# Local environment and editor files
+.env
+.env.*
+!.env.example
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Local database dumps and exports
+/sarinah (4).sql
+*.dump
+*.bak
+
+# Runtime logs
+/apps/logs/*.log
+
+# User-uploaded and generated files
+/apps/uploads/*
+!/apps/uploads/.gitkeep
+/uploads/*
+!/uploads/.gitkeep
+/codex-output/
+
+# Operating system files
+.DS_Store
+Thumbs.db

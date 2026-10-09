@@ -1,0 +1,103 @@
+{
+  "id": "a9c6df02-702e-4b89-b9fa-65e10d50ad01",
+  "version": "2.0",
+  "name": "Sarinah Apps - Smoke Test",
+  "url": "http://localhost/sarinah-apps/",
+  "tests": [
+    {
+      "id": "748c1e9d-bf1a-4c38-aec1-984da66f0101",
+      "name": "AUTH-01 Landing page dan akses Login",
+      "commands": [
+        {"id":"10000000-0000-4000-8000-000000000000","comment":"Reset cookie/sesi agar test mandiri, termasuk saat dijalankan setelah test login.","command":"open","target":"apps/classes/Login.php?f=logout","targets":[],"value":""},
+        {"id":"10000000-0000-4000-8000-000000000001","comment":"Gunakan URL eksplisit karena Selenium IDE menafsirkan '.' relatif terhadap endpoint logout sebelumnya.","command":"open","target":"http://localhost/sarinah-apps/","targets":[],"value":""},
+        {"id":"10000000-0000-4000-8000-000000000002","comment":"Pastikan landing page termuat. Selector #hero stabil dan tidak dipengaruhi animasi header.","command":"assertElementPresent","target":"css=#hero","targets":[],"value":""},
+        {"id":"10000000-0000-4000-8000-000000000003","comment":"Verifikasi halaman tujuan Login. Navigasi langsung dipakai agar test tidak flakey akibat animasi header Firefox.","command":"open","target":"apps/admin/login.php","targets":[],"value":""},
+        {"id":"10000000-0000-4000-8000-000000000004","comment":"","command":"waitForElementVisible","target":"css=#login-frm","targets":[],"value":"5000"}
+      ]
+    },
+    {
+      "id": "1c7f6a89-0228-4217-b04e-8c535c640102",
+      "name": "AUTH-02 Validasi login kosong",
+      "commands": [
+        {"id":"20000000-0000-4000-8000-000000000000","comment":"Reset cookie/sesi agar test mandiri, termasuk saat dijalankan setelah test login.","command":"open","target":"apps/classes/Login.php?f=logout","targets":[],"value":""},
+        {"id":"20000000-0000-4000-8000-000000000001","comment":"","command":"open","target":"apps/admin/login.php","targets":[],"value":""},
+        {"id":"20000000-0000-4000-8000-000000000002","comment":"","command":"click","target":"css=.btn-login","targets":[],"value":""},
+        {"id":"20000000-0000-4000-8000-000000000003","comment":"","command":"waitForElementVisible","target":"css=.swal2-popup","targets":[],"value":"5000"},
+        {"id":"20000000-0000-4000-8000-000000000004","comment":"","command":"assertText","target":"css=.swal2-title","targets":[],"value":"Login Gagal"},
+        {"id":"20000000-0000-4000-8000-000000000005","comment":"","command":"assertText","target":"css=.swal2-html-container","targets":[],"value":"Username dan password wajib diisi."}
+      ]
+    },
+    {
+      "id": "b2c434da-b245-4ae2-8d46-d992c1fc0103",
+      "name": "AUTH-03 Login gagal",
+      "commands": [
+        {"id":"30000000-0000-4000-8000-000000000000","comment":"Reset cookie/sesi agar test mandiri, termasuk saat dijalankan setelah test login.","command":"open","target":"apps/classes/Login.php?f=logout","targets":[],"value":""},
+        {"id":"30000000-0000-4000-8000-000000000001","comment":"","command":"open","target":"apps/admin/login.php","targets":[],"value":""},
+        {"id":"30000000-0000-4000-8000-000000000002","comment":"","command":"type","target":"css=input[name=\"username\"]","targets":[],"value":"akun-tidak-valid"},
+        {"id":"30000000-0000-4000-8000-000000000003","comment":"","command":"type","target":"css=#passwordInput","targets":[],"value":"Salah123!"},
+        {"id":"30000000-0000-4000-8000-000000000004","comment":"","command":"click","target":"css=.btn-login","targets":[],"value":""},
+        {"id":"30000000-0000-4000-8000-000000000005","comment":"","command":"waitForElementVisible","target":"css=.swal2-popup","targets":[],"value":"5000"},
+        {"id":"30000000-0000-4000-8000-000000000006","comment":"","command":"assertText","target":"css=.swal2-title","targets":[],"value":"Login Gagal"}
+      ]
+    },
+    {
+      "id": "4fcb2ea2-8554-4ed2-b465-585abc3a0104",
+      "name": "AUTH-05 Tampilkan dan sembunyikan password",
+      "commands": [
+        {"id":"40000000-0000-4000-8000-000000000000","comment":"Reset cookie/sesi agar test mandiri, termasuk saat dijalankan setelah test login.","command":"open","target":"apps/classes/Login.php?f=logout","targets":[],"value":""},
+        {"id":"40000000-0000-4000-8000-000000000001","comment":"","command":"open","target":"apps/admin/login.php","targets":[],"value":""},
+        {"id":"40000000-0000-4000-8000-000000000002","comment":"Tunggu form login selesai dirender agar test tidak flakey pada Firefox.","command":"waitForElementVisible","target":"css=#passwordInput","targets":[],"value":"5000"},
+        {"id":"40000000-0000-4000-8000-000000000003","comment":"","command":"type","target":"css=#passwordInput","targets":[],"value":"Rahasia123!"},
+        {"id":"40000000-0000-4000-8000-000000000004","comment":"","command":"click","target":"css=#togglePassword","targets":[],"value":""},
+        {"id":"40000000-0000-4000-8000-000000000005","comment":"Versi Selenium IDE ini tidak mendukung assertAttribute; cek perubahan type melalui selector CSS.","command":"assertElementPresent","target":"css=#passwordInput[type=\"text\"]","targets":[],"value":""},
+        {"id":"40000000-0000-4000-8000-000000000006","comment":"","command":"click","target":"css=#togglePassword","targets":[],"value":""},
+        {"id":"40000000-0000-4000-8000-000000000007","comment":"","command":"assertElementPresent","target":"css=#passwordInput[type=\"password\"]","targets":[],"value":""}
+      ]
+    },
+    {
+      "id": "d7ac61f5-aa00-407b-84f5-5b6e68d30105",
+      "name": "AUTH-08 Proteksi halaman admin",
+      "commands": [
+        {"id":"50000000-0000-4000-8000-000000000000","comment":"Reset cookie/sesi agar test mandiri, termasuk saat dijalankan setelah test login.","command":"open","target":"apps/classes/Login.php?f=logout","targets":[],"value":""},
+        {"id":"50000000-0000-4000-8000-000000000001","comment":"Jalankan pada sesi Firefox tanpa login.","command":"open","target":"apps/admin/?page=barang","targets":[],"value":""},
+        {"id":"50000000-0000-4000-8000-000000000002","comment":"","command":"waitForElementVisible","target":"css=#login-frm","targets":[],"value":"5000"},
+        {"id":"50000000-0000-4000-8000-000000000003","comment":"","command":"assertElementPresent","target":"css=input[name=\"username\"]","targets":[],"value":""}
+      ]
+    },
+    {
+      "id": "6367db5a-4e11-47c5-9ba2-a7dd552a0106",
+      "name": "AUTH-07 Login admin",
+      "commands": [
+        {"id":"60000000-0000-4000-8000-000000000000","comment":"Reset cookie/sesi agar test mandiri, termasuk saat dijalankan setelah test login.","command":"open","target":"apps/classes/Login.php?f=logout","targets":[],"value":""},
+        {"id":"60000000-0000-4000-8000-000000000001","comment":"Login memakai akun testing yang diberikan pengguna.","command":"open","target":"apps/admin/login.php","targets":[],"value":""},
+        {"id":"60000000-0000-4000-8000-000000000002","comment":"Jangan gunakan kredensial produksi di file .side.","command":"store","target":"admin","targets":[],"value":"adminUser"},
+        {"id":"60000000-0000-4000-8000-000000000003","comment":"Isi CHANGE_ME dengan password akun testing lokal sebelum menjalankan test.","command":"store","target":"CHANGE_ME","targets":[],"value":"adminPass"},
+        {"id":"60000000-0000-4000-8000-000000000004","comment":"","command":"type","target":"css=input[name=\"username\"]","targets":[],"value":"${adminUser}"},
+        {"id":"60000000-0000-4000-8000-000000000005","comment":"","command":"type","target":"css=#passwordInput","targets":[],"value":"${adminPass}"},
+        {"id":"60000000-0000-4000-8000-000000000006","comment":"","command":"click","target":"css=.btn-login","targets":[],"value":""},
+        {"id":"60000000-0000-4000-8000-000000000007","comment":"","command":"waitForElementVisible","target":"css=.swal2-popup","targets":[],"value":"5000"},
+        {"id":"60000000-0000-4000-8000-000000000008","comment":"","command":"assertText","target":"css=.swal2-title","targets":[],"value":"Login Berhasil!"},
+        {"id":"60000000-0000-4000-8000-000000000009","comment":"Dashboard aktif menggunakan layout baru tanpa #kt_aside; heading ini menjadi indikator redirect login berhasil.","command":"waitForElementVisible","target":"xpath=//h1[normalize-space()='Dashboard']","targets":[],"value":"10000"}
+      ]
+    }
+  ],
+  "suites": [
+    {
+      "id": "c0dc5a96-78b0-4ab1-9ca5-3d4c55b90107",
+      "name": "Smoke Test",
+      "persistSession": false,
+      "parallel": false,
+      "timeout": 300,
+      "tests": [
+        "748c1e9d-bf1a-4c38-aec1-984da66f0101",
+        "1c7f6a89-0228-4217-b04e-8c535c640102",
+        "b2c434da-b245-4ae2-8d46-d992c1fc0103",
+        "4fcb2ea2-8554-4ed2-b465-585abc3a0104",
+        "d7ac61f5-aa00-407b-84f5-5b6e68d30105",
+        "6367db5a-4e11-47c5-9ba2-a7dd552a0106"
+      ]
+    }
+  ],
+  "urls": ["http://localhost/sarinah-apps/"],
+  "plugins": []
+}

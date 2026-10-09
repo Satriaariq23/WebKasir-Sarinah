@@ -1,0 +1,1479 @@
+{
+    "id":  "beac8bfb-6fde-4f89-9b81-13e9af2e8801",
+    "version":  "2.0",
+    "name":  "Sarinah Apps - All Features Smoke",
+    "url":  "http://localhost/sarinah-apps/",
+    "tests":  [
+                  {
+                      "id":  "bb000000-0000-4000-8000-000000000001",
+                      "name":  "ALL-00 Akses tanpa sesi ditolak",
+                      "commands":  [
+                                       {
+                                           "id":  "aa000000-0000-4000-8000-000000000001",
+                                           "comment":  "",
+                                           "command":  "open",
+                                           "target":  "apps/classes/Login.php?f=logout",
+                                           "targets":  [
+
+                                                       ],
+                                           "value":  ""
+                                       },
+                                       {
+                                           "id":  "aa000000-0000-4000-8000-000000000002",
+                                           "comment":  "",
+                                           "command":  "open",
+                                           "target":  "apps/admin/?page=barang",
+                                           "targets":  [
+
+                                                       ],
+                                           "value":  ""
+                                       },
+                                       {
+                                           "id":  "aa000000-0000-4000-8000-000000000004",
+                                           "comment":  "",
+                                           "command":  "assertElementPresent",
+                                           "target":  "css=input[name=\"username\"]",
+                                           "targets":  [
+
+                                                       ],
+                                           "value":  ""
+                                       }
+                                   ]
+                  },
+                  {
+                      "id":  "bb000000-0000-4000-8000-000000000002",
+                      "name":  "ALL-01 Master Data",
+                      "commands":  [
+                                       {
+                                           "id":  "aa000000-0000-4000-8000-000000000005",
+                                           "comment":  "Reset sesi agar tiap test dapat dijalankan sendiri.",
+                                           "command":  "open",
+                                           "target":  "apps/classes/Login.php?f=logout",
+                                           "targets":  [
+
+                                                       ],
+                                           "value":  ""
+                                       },
+                                       {
+                                           "id":  "aa000000-0000-4000-8000-000000000006",
+                                           "comment":  "",
+                                           "command":  "open",
+                                           "target":  "apps/admin/login.php",
+                                           "targets":  [
+
+                                                       ],
+                                           "value":  ""
+                                       },
+                                       {
+                                           "id":  "aa000000-0000-4000-8000-000000000008",
+                                           "comment":  "",
+                                           "command":  "type",
+                                           "target":  "css=input[name=\"username\"]",
+                                           "targets":  [
+
+                                                       ],
+                                           "value":  "admin"
+                                       },
+                                       {
+                                           "id":  "aa000000-0000-4000-8000-000000000009",
+                                           "comment":  "",
+                                           "command":  "type",
+                                           "target":  "css=#passwordInput",
+                                           "targets":  [
+
+                                                       ],
+                                           "value":  "CHANGE_ME"
+                                       },
+                                       {
+                                           "id":  "aa000000-0000-4000-8000-000000000010",
+                                           "comment":  "",
+                                           "command":  "click",
+                                           "target":  "css=.btn-login",
+                                           "targets":  [
+
+                                                       ],
+                                           "value":  ""
+                                       },
+                                       {
+                                           "id":  "aa000000-0000-4000-8000-000000000011",
+                                           "comment":  "",
+                                           "command":  "waitForElementVisible",
+                                           "target":  "xpath=//h1[normalize-space()=\"Dashboard\"]",
+                                           "targets":  [
+
+                                                       ],
+                                           "value":  "10000"
+                                       },
+                                       {
+                                           "id":  "aa000000-0000-4000-8000-000000000012",
+                                           "comment":  "",
+                                           "command":  "open",
+                                           "target":  "apps/admin/?page=barang",
+                                           "targets":  [
+
+                                                       ],
+                                           "value":  ""
+                                       },
+                                       {
+                                           "id":  "aa000000-0000-4000-8000-000000000013",
+                                           "comment":  "Pastikan modul apps/admin/?page=barang termuat.",
+                                           "command":  "waitForElementVisible",
+                                           "target":  "css=#btn_add",
+                                           "targets":  [
+
+                                                       ],
+                                           "value":  "10000"
+                                       },
+                                       {
+                                           "id":  "aa000000-0000-4000-8000-000000000014",
+                                           "comment":  "",
+                                           "command":  "open",
+                                           "target":  "apps/admin/?page=barang/kategori",
+                                           "targets":  [
+
+                                                       ],
+                                           "value":  ""
+                                       },
+                                       {
+                                           "id":  "aa000000-0000-4000-8000-000000000015",
+                                           "comment":  "Pastikan modul apps/admin/?page=barang/kategori termuat.",
+                                           "command":  "waitForElementVisible",
+                                           "target":  "css=#btn_add",
+                                           "targets":  [
+
+                                                       ],
+                                           "value":  "10000"
+                                       },
+                                       {
+                                           "id":  "aa000000-0000-4000-8000-000000000016",
+                                           "comment":  "",
+                                           "command":  "open",
+                                           "target":  "apps/admin/?page=barang/satuan",
+                                           "targets":  [
+
+                                                       ],
+                                           "value":  ""
+                                       },
+                                       {
+                                           "id":  "aa000000-0000-4000-8000-000000000017",
+                                           "comment":  "Pastikan modul apps/admin/?page=barang/satuan termuat.",
+                                           "command":  "waitForElementVisible",
+                                           "target":  "css=#btn_add",
+                                           "targets":  [
+
+                                                       ],
+                                           "value":  "10000"
+                                       },
+                                       {
+                                           "id":  "aa000000-0000-4000-8000-000000000018",
+                                           "comment":  "",
+                                           "command":  "open",
+                                           "target":  "apps/admin/?page=pelanggan",
+                                           "targets":  [
+
+                                                       ],
+                                           "value":  ""
+                                       },
+                                       {
+                                           "id":  "aa000000-0000-4000-8000-000000000019",
+                                           "comment":  "Pastikan modul apps/admin/?page=pelanggan termuat.",
+                                           "command":  "waitForElementVisible",
+                                           "target":  "css=#btn_add",
+                                           "targets":  [
+
+                                                       ],
+                                           "value":  "10000"
+                                       },
+                                       {
+                                           "id":  "aa000000-0000-4000-8000-000000000020",
+                                           "comment":  "",
+                                           "command":  "open",
+                                           "target":  "apps/admin/?page=pelanggan/member",
+                                           "targets":  [
+
+                                                       ],
+                                           "value":  ""
+                                       },
+                                       {
+                                           "id":  "aa000000-0000-4000-8000-000000000021",
+                                           "comment":  "Pastikan modul apps/admin/?page=pelanggan/member termuat.",
+                                           "command":  "waitForElementVisible",
+                                           "target":  "css=#btn_add",
+                                           "targets":  [
+
+                                                       ],
+                                           "value":  "10000"
+                                       },
+                                       {
+                                           "id":  "aa000000-0000-4000-8000-000000000022",
+                                           "comment":  "",
+                                           "command":  "open",
+                                           "target":  "apps/admin/?page=supplier",
+                                           "targets":  [
+
+                                                       ],
+                                           "value":  ""
+                                       },
+                                       {
+                                           "id":  "aa000000-0000-4000-8000-000000000023",
+                                           "comment":  "Pastikan modul apps/admin/?page=supplier termuat.",
+                                           "command":  "waitForElementVisible",
+                                           "target":  "css=#btn_add",
+                                           "targets":  [
+
+                                                       ],
+                                           "value":  "10000"
+                                       },
+                                       {
+                                           "id":  "aa000000-0000-4000-8000-000000000024",
+                                           "comment":  "",
+                                           "command":  "open",
+                                           "target":  "apps/admin/?page=salesman",
+                                           "targets":  [
+
+                                                       ],
+                                           "value":  ""
+                                       },
+                                       {
+                                           "id":  "aa000000-0000-4000-8000-000000000025",
+                                           "comment":  "Pastikan modul apps/admin/?page=salesman termuat.",
+                                           "command":  "waitForElementVisible",
+                                           "target":  "css=#btn_add",
+                                           "targets":  [
+
+                                                       ],
+                                           "value":  "10000"
+                                       },
+                                       {
+                                           "id":  "aa000000-0000-4000-8000-000000000026",
+                                           "comment":  "",
+                                           "command":  "open",
+                                           "target":  "apps/admin/?page=karyawan",
+                                           "targets":  [
+
+                                                       ],
+                                           "value":  ""
+                                       },
+                                       {
+                                           "id":  "aa000000-0000-4000-8000-000000000027",
+                                           "comment":  "Pastikan modul apps/admin/?page=karyawan termuat.",
+                                           "command":  "waitForElementVisible",
+                                           "target":  "css=#btn_add",
+                                           "targets":  [
+
+                                                       ],
+                                           "value":  "10000"
+                                       },
+                                       {
+                                           "id":  "aa000000-0000-4000-8000-000000000028",
+                                           "comment":  "",
+                                           "command":  "open",
+                                           "target":  "apps/admin/?page=karyawan/kasir",
+                                           "targets":  [
+
+                                                       ],
+                                           "value":  ""
+                                       },
+                                       {
+                                           "id":  "aa000000-0000-4000-8000-000000000029",
+                                           "comment":  "Pastikan modul apps/admin/?page=karyawan/kasir termuat.",
+                                           "command":  "waitForElementVisible",
+                                           "target":  "css=#btn_add",
+                                           "targets":  [
+
+                                                       ],
+                                           "value":  "10000"
+                                       },
+                                       {
+                                           "id":  "aa000000-0000-4000-8000-000000000030",
+                                           "comment":  "",
+                                           "command":  "open",
+                                           "target":  "apps/admin/?page=user",
+                                           "targets":  [
+
+                                                       ],
+                                           "value":  ""
+                                       },
+                                       {
+                                           "id":  "aa000000-0000-4000-8000-000000000031",
+                                           "comment":  "Pastikan modul apps/admin/?page=user termuat.",
+                                           "command":  "waitForElementVisible",
+                                           "target":  "css=#btn_add",
+                                           "targets":  [
+
+                                                       ],
+                                           "value":  "10000"
+                                       }
+                                   ]
+                  },
+                  {
+                      "id":  "bb000000-0000-4000-8000-000000000003",
+                      "name":  "ALL-02 Transaksi",
+                      "commands":  [
+                                       {
+                                           "id":  "aa000000-0000-4000-8000-000000000032",
+                                           "comment":  "Reset sesi agar tiap test dapat dijalankan sendiri.",
+                                           "command":  "open",
+                                           "target":  "apps/classes/Login.php?f=logout",
+                                           "targets":  [
+
+                                                       ],
+                                           "value":  ""
+                                       },
+                                       {
+                                           "id":  "aa000000-0000-4000-8000-000000000033",
+                                           "comment":  "",
+                                           "command":  "open",
+                                           "target":  "apps/admin/login.php",
+                                           "targets":  [
+
+                                                       ],
+                                           "value":  ""
+                                       },
+                                       {
+                                           "id":  "aa000000-0000-4000-8000-000000000035",
+                                           "comment":  "",
+                                           "command":  "type",
+                                           "target":  "css=input[name=\"username\"]",
+                                           "targets":  [
+
+                                                       ],
+                                           "value":  "admin"
+                                       },
+                                       {
+                                           "id":  "aa000000-0000-4000-8000-000000000036",
+                                           "comment":  "",
+                                           "command":  "type",
+                                           "target":  "css=#passwordInput",
+                                           "targets":  [
+
+                                                       ],
+                                           "value":  "CHANGE_ME"
+                                       },
+                                       {
+                                           "id":  "aa000000-0000-4000-8000-000000000037",
+                                           "comment":  "",
+                                           "command":  "click",
+                                           "target":  "css=.btn-login",
+                                           "targets":  [
+
+                                                       ],
+                                           "value":  ""
+                                       },
+                                       {
+                                           "id":  "aa000000-0000-4000-8000-000000000038",
+                                           "comment":  "",
+                                           "command":  "waitForElementVisible",
+                                           "target":  "xpath=//h1[normalize-space()=\"Dashboard\"]",
+                                           "targets":  [
+
+                                                       ],
+                                           "value":  "10000"
+                                       },
+                                       {
+                                           "id":  "aa000000-0000-4000-8000-000000000039",
+                                           "comment":  "",
+                                           "command":  "open",
+                                           "target":  "apps/admin/?page=penjualan",
+                                           "targets":  [
+
+                                                       ],
+                                           "value":  ""
+                                       },
+                                       {
+                                           "id":  "aa000000-0000-4000-8000-000000000040",
+                                           "comment":  "Pastikan modul apps/admin/?page=penjualan termuat.",
+                                           "command":  "waitForElementVisible",
+                                           "target":  "css=#penjualan-form",
+                                           "targets":  [
+
+                                                       ],
+                                           "value":  "10000"
+                                       },
+                                       {
+                                           "id":  "aa000000-0000-4000-8000-000000000041",
+                                           "comment":  "",
+                                           "command":  "open",
+                                           "target":  "apps/admin/?page=penjualan/kasir",
+                                           "targets":  [
+
+                                                       ],
+                                           "value":  ""
+                                       },
+                                       {
+                                           "id":  "aa000000-0000-4000-8000-000000000042",
+                                           "comment":  "Pastikan modul apps/admin/?page=penjualan/kasir termuat.",
+                                           "command":  "waitForElementVisible",
+                                           "target":  "css=#kasir-form",
+                                           "targets":  [
+
+                                                       ],
+                                           "value":  "10000"
+                                       },
+                                       {
+                                           "id":  "aa000000-0000-4000-8000-000000000043",
+                                           "comment":  "",
+                                           "command":  "open",
+                                           "target":  "apps/admin/?page=pembelian",
+                                           "targets":  [
+
+                                                       ],
+                                           "value":  ""
+                                       },
+                                       {
+                                           "id":  "aa000000-0000-4000-8000-000000000044",
+                                           "comment":  "Pastikan modul apps/admin/?page=pembelian termuat.",
+                                           "command":  "waitForElementVisible",
+                                           "target":  "css=#pembelian-form",
+                                           "targets":  [
+
+                                                       ],
+                                           "value":  "10000"
+                                       },
+                                       {
+                                           "id":  "aa000000-0000-4000-8000-000000000045",
+                                           "comment":  "",
+                                           "command":  "open",
+                                           "target":  "apps/admin/?page=retur-pembelian",
+                                           "targets":  [
+
+                                                       ],
+                                           "value":  ""
+                                       },
+                                       {
+                                           "id":  "aa000000-0000-4000-8000-000000000046",
+                                           "comment":  "Pastikan modul apps/admin/?page=retur-pembelian termuat.",
+                                           "command":  "waitForElementVisible",
+                                           "target":  "css=#retur-pembelian-form",
+                                           "targets":  [
+
+                                                       ],
+                                           "value":  "10000"
+                                       },
+                                       {
+                                           "id":  "aa000000-0000-4000-8000-000000000047",
+                                           "comment":  "",
+                                           "command":  "open",
+                                           "target":  "apps/admin/?page=retur-penjualan",
+                                           "targets":  [
+
+                                                       ],
+                                           "value":  ""
+                                       },
+                                       {
+                                           "id":  "aa000000-0000-4000-8000-000000000048",
+                                           "comment":  "Pastikan modul apps/admin/?page=retur-penjualan termuat.",
+                                           "command":  "waitForElementVisible",
+                                           "target":  "css=#form_retur",
+                                           "targets":  [
+
+                                                       ],
+                                           "value":  "10000"
+                                       },
+                                       {
+                                           "id":  "aa000000-0000-4000-8000-000000000049",
+                                           "comment":  "",
+                                           "command":  "open",
+                                           "target":  "apps/admin/?page=riwayat-transaksi",
+                                           "targets":  [
+
+                                                       ],
+                                           "value":  ""
+                                       },
+                                       {
+                                           "id":  "aa000000-0000-4000-8000-000000000050",
+                                           "comment":  "Pastikan modul apps/admin/?page=riwayat-transaksi termuat.",
+                                           "command":  "waitForElementVisible",
+                                           "target":  "css=#filter_source",
+                                           "targets":  [
+
+                                                       ],
+                                           "value":  "10000"
+                                       }
+                                   ]
+                  },
+                  {
+                      "id":  "bb000000-0000-4000-8000-000000000004",
+                      "name":  "ALL-03 Stok dan Opname",
+                      "commands":  [
+                                       {
+                                           "id":  "aa000000-0000-4000-8000-000000000051",
+                                           "comment":  "Reset sesi agar tiap test dapat dijalankan sendiri.",
+                                           "command":  "open",
+                                           "target":  "apps/classes/Login.php?f=logout",
+                                           "targets":  [
+
+                                                       ],
+                                           "value":  ""
+                                       },
+                                       {
+                                           "id":  "aa000000-0000-4000-8000-000000000052",
+                                           "comment":  "",
+                                           "command":  "open",
+                                           "target":  "apps/admin/login.php",
+                                           "targets":  [
+
+                                                       ],
+                                           "value":  ""
+                                       },
+                                       {
+                                           "id":  "aa000000-0000-4000-8000-000000000054",
+                                           "comment":  "",
+                                           "command":  "type",
+                                           "target":  "css=input[name=\"username\"]",
+                                           "targets":  [
+
+                                                       ],
+                                           "value":  "admin"
+                                       },
+                                       {
+                                           "id":  "aa000000-0000-4000-8000-000000000055",
+                                           "comment":  "",
+                                           "command":  "type",
+                                           "target":  "css=#passwordInput",
+                                           "targets":  [
+
+                                                       ],
+                                           "value":  "CHANGE_ME"
+                                       },
+                                       {
+                                           "id":  "aa000000-0000-4000-8000-000000000056",
+                                           "comment":  "",
+                                           "command":  "click",
+                                           "target":  "css=.btn-login",
+                                           "targets":  [
+
+                                                       ],
+                                           "value":  ""
+                                       },
+                                       {
+                                           "id":  "aa000000-0000-4000-8000-000000000057",
+                                           "comment":  "",
+                                           "command":  "waitForElementVisible",
+                                           "target":  "xpath=//h1[normalize-space()=\"Dashboard\"]",
+                                           "targets":  [
+
+                                                       ],
+                                           "value":  "10000"
+                                       },
+                                       {
+                                           "id":  "aa000000-0000-4000-8000-000000000058",
+                                           "comment":  "",
+                                           "command":  "open",
+                                           "target":  "apps/admin/?page=stok",
+                                           "targets":  [
+
+                                                       ],
+                                           "value":  ""
+                                       },
+                                       {
+                                           "id":  "aa000000-0000-4000-8000-000000000059",
+                                           "comment":  "Pastikan modul apps/admin/?page=stok termuat.",
+                                           "command":  "waitForElementVisible",
+                                           "target":  "css=#table-stok",
+                                           "targets":  [
+
+                                                       ],
+                                           "value":  "10000"
+                                       },
+                                       {
+                                           "id":  "aa000000-0000-4000-8000-000000000060",
+                                           "comment":  "",
+                                           "command":  "open",
+                                           "target":  "apps/admin/?page=kartu-stok",
+                                           "targets":  [
+
+                                                       ],
+                                           "value":  ""
+                                       },
+                                       {
+                                           "id":  "aa000000-0000-4000-8000-000000000061",
+                                           "comment":  "Pastikan modul apps/admin/?page=kartu-stok termuat.",
+                                           "command":  "waitForElementVisible",
+                                           "target":  "css=#table_kartu_stok",
+                                           "targets":  [
+
+                                                       ],
+                                           "value":  "10000"
+                                       },
+                                       {
+                                           "id":  "aa000000-0000-4000-8000-000000000062",
+                                           "comment":  "",
+                                           "command":  "open",
+                                           "target":  "apps/admin/?page=stok-opname",
+                                           "targets":  [
+
+                                                       ],
+                                           "value":  ""
+                                       },
+                                       {
+                                           "id":  "aa000000-0000-4000-8000-000000000063",
+                                           "comment":  "Pastikan modul apps/admin/?page=stok-opname termuat.",
+                                           "command":  "waitForElementVisible",
+                                           "target":  "css=#btn_new_opname",
+                                           "targets":  [
+
+                                                       ],
+                                           "value":  "10000"
+                                       }
+                                   ]
+                  },
+                  {
+                      "id":  "bb000000-0000-4000-8000-000000000005",
+                      "name":  "ALL-04 Hutang dan Piutang",
+                      "commands":  [
+                                       {
+                                           "id":  "aa000000-0000-4000-8000-000000000064",
+                                           "comment":  "Reset sesi agar tiap test dapat dijalankan sendiri.",
+                                           "command":  "open",
+                                           "target":  "apps/classes/Login.php?f=logout",
+                                           "targets":  [
+
+                                                       ],
+                                           "value":  ""
+                                       },
+                                       {
+                                           "id":  "aa000000-0000-4000-8000-000000000065",
+                                           "comment":  "",
+                                           "command":  "open",
+                                           "target":  "apps/admin/login.php",
+                                           "targets":  [
+
+                                                       ],
+                                           "value":  ""
+                                       },
+                                       {
+                                           "id":  "aa000000-0000-4000-8000-000000000067",
+                                           "comment":  "",
+                                           "command":  "type",
+                                           "target":  "css=input[name=\"username\"]",
+                                           "targets":  [
+
+                                                       ],
+                                           "value":  "admin"
+                                       },
+                                       {
+                                           "id":  "aa000000-0000-4000-8000-000000000068",
+                                           "comment":  "",
+                                           "command":  "type",
+                                           "target":  "css=#passwordInput",
+                                           "targets":  [
+
+                                                       ],
+                                           "value":  "CHANGE_ME"
+                                       },
+                                       {
+                                           "id":  "aa000000-0000-4000-8000-000000000069",
+                                           "comment":  "",
+                                           "command":  "click",
+                                           "target":  "css=.btn-login",
+                                           "targets":  [
+
+                                                       ],
+                                           "value":  ""
+                                       },
+                                       {
+                                           "id":  "aa000000-0000-4000-8000-000000000070",
+                                           "comment":  "",
+                                           "command":  "waitForElementVisible",
+                                           "target":  "xpath=//h1[normalize-space()=\"Dashboard\"]",
+                                           "targets":  [
+
+                                                       ],
+                                           "value":  "10000"
+                                       },
+                                       {
+                                           "id":  "aa000000-0000-4000-8000-000000000071",
+                                           "comment":  "",
+                                           "command":  "open",
+                                           "target":  "apps/admin/?page=hutang",
+                                           "targets":  [
+
+                                                       ],
+                                           "value":  ""
+                                       },
+                                       {
+                                           "id":  "aa000000-0000-4000-8000-000000000072",
+                                           "comment":  "Pastikan modul apps/admin/?page=hutang termuat.",
+                                           "command":  "waitForElementVisible",
+                                           "target":  "css=#table_hutang",
+                                           "targets":  [
+
+                                                       ],
+                                           "value":  "10000"
+                                       },
+                                       {
+                                           "id":  "aa000000-0000-4000-8000-000000000073",
+                                           "comment":  "",
+                                           "command":  "open",
+                                           "target":  "apps/admin/?page=hutang/bayar",
+                                           "targets":  [
+
+                                                       ],
+                                           "value":  ""
+                                       },
+                                       {
+                                           "id":  "aa000000-0000-4000-8000-000000000074",
+                                           "comment":  "Pastikan modul apps/admin/?page=hutang/bayar termuat.",
+                                           "command":  "waitForElementVisible",
+                                           "target":  "css=#btn_input_pembayaran",
+                                           "targets":  [
+
+                                                       ],
+                                           "value":  "10000"
+                                       },
+                                       {
+                                           "id":  "aa000000-0000-4000-8000-000000000075",
+                                           "comment":  "",
+                                           "command":  "open",
+                                           "target":  "apps/admin/?page=piutang",
+                                           "targets":  [
+
+                                                       ],
+                                           "value":  ""
+                                       },
+                                       {
+                                           "id":  "aa000000-0000-4000-8000-000000000076",
+                                           "comment":  "Pastikan modul apps/admin/?page=piutang termuat.",
+                                           "command":  "waitForElementVisible",
+                                           "target":  "css=#btn_input_piutang",
+                                           "targets":  [
+
+                                                       ],
+                                           "value":  "10000"
+                                       },
+                                       {
+                                           "id":  "aa000000-0000-4000-8000-000000000077",
+                                           "comment":  "",
+                                           "command":  "open",
+                                           "target":  "apps/admin/?page=piutang/terima",
+                                           "targets":  [
+
+                                                       ],
+                                           "value":  ""
+                                       },
+                                       {
+                                           "id":  "aa000000-0000-4000-8000-000000000078",
+                                           "comment":  "Pastikan modul apps/admin/?page=piutang/terima termuat.",
+                                           "command":  "waitForElementVisible",
+                                           "target":  "css=#btn_input_penerimaan",
+                                           "targets":  [
+
+                                                       ],
+                                           "value":  "10000"
+                                       }
+                                   ]
+                  },
+                  {
+                      "id":  "bb000000-0000-4000-8000-000000000006",
+                      "name":  "ALL-05 Laporan Penjualan",
+                      "commands":  [
+                                       {
+                                           "id":  "aa000000-0000-4000-8000-000000000079",
+                                           "comment":  "Reset sesi agar tiap test dapat dijalankan sendiri.",
+                                           "command":  "open",
+                                           "target":  "apps/classes/Login.php?f=logout",
+                                           "targets":  [
+
+                                                       ],
+                                           "value":  ""
+                                       },
+                                       {
+                                           "id":  "aa000000-0000-4000-8000-000000000080",
+                                           "comment":  "",
+                                           "command":  "open",
+                                           "target":  "apps/admin/login.php",
+                                           "targets":  [
+
+                                                       ],
+                                           "value":  ""
+                                       },
+                                       {
+                                           "id":  "aa000000-0000-4000-8000-000000000082",
+                                           "comment":  "",
+                                           "command":  "type",
+                                           "target":  "css=input[name=\"username\"]",
+                                           "targets":  [
+
+                                                       ],
+                                           "value":  "admin"
+                                       },
+                                       {
+                                           "id":  "aa000000-0000-4000-8000-000000000083",
+                                           "comment":  "",
+                                           "command":  "type",
+                                           "target":  "css=#passwordInput",
+                                           "targets":  [
+
+                                                       ],
+                                           "value":  "CHANGE_ME"
+                                       },
+                                       {
+                                           "id":  "aa000000-0000-4000-8000-000000000084",
+                                           "comment":  "",
+                                           "command":  "click",
+                                           "target":  "css=.btn-login",
+                                           "targets":  [
+
+                                                       ],
+                                           "value":  ""
+                                       },
+                                       {
+                                           "id":  "aa000000-0000-4000-8000-000000000085",
+                                           "comment":  "",
+                                           "command":  "waitForElementVisible",
+                                           "target":  "xpath=//h1[normalize-space()=\"Dashboard\"]",
+                                           "targets":  [
+
+                                                       ],
+                                           "value":  "10000"
+                                       },
+                                       {
+                                           "id":  "aa000000-0000-4000-8000-000000000086",
+                                           "comment":  "",
+                                           "command":  "open",
+                                           "target":  "apps/admin/?page=laporan/sales",
+                                           "targets":  [
+
+                                                       ],
+                                           "value":  ""
+                                       },
+                                       {
+                                           "id":  "aa000000-0000-4000-8000-000000000087",
+                                           "comment":  "Pastikan modul apps/admin/?page=laporan/sales termuat.",
+                                           "command":  "waitForElementVisible",
+                                           "target":  "css=#btn_load_sales_report",
+                                           "targets":  [
+
+                                                       ],
+                                           "value":  "10000"
+                                       },
+                                       {
+                                           "id":  "aa000000-0000-4000-8000-000000000088",
+                                           "comment":  "",
+                                           "command":  "open",
+                                           "target":  "apps/admin/?page=laporan/omset",
+                                           "targets":  [
+
+                                                       ],
+                                           "value":  ""
+                                       },
+                                       {
+                                           "id":  "aa000000-0000-4000-8000-000000000089",
+                                           "comment":  "Pastikan modul apps/admin/?page=laporan/omset termuat.",
+                                           "command":  "waitForElementVisible",
+                                           "target":  "css=#omset_table",
+                                           "targets":  [
+
+                                                       ],
+                                           "value":  "10000"
+                                       },
+                                       {
+                                           "id":  "aa000000-0000-4000-8000-000000000090",
+                                           "comment":  "",
+                                           "command":  "open",
+                                           "target":  "apps/admin/?page=laporan/ppn",
+                                           "targets":  [
+
+                                                       ],
+                                           "value":  ""
+                                       },
+                                       {
+                                           "id":  "aa000000-0000-4000-8000-000000000091",
+                                           "comment":  "Pastikan modul apps/admin/?page=laporan/ppn termuat.",
+                                           "command":  "waitForElementVisible",
+                                           "target":  "css=#ppn_report_table",
+                                           "targets":  [
+
+                                                       ],
+                                           "value":  "10000"
+                                       },
+                                       {
+                                           "id":  "aa000000-0000-4000-8000-000000000092",
+                                           "comment":  "",
+                                           "command":  "open",
+                                           "target":  "apps/admin/?page=laporan/laba_kotor",
+                                           "targets":  [
+
+                                                       ],
+                                           "value":  ""
+                                       },
+                                       {
+                                           "id":  "aa000000-0000-4000-8000-000000000093",
+                                           "comment":  "Pastikan modul apps/admin/?page=laporan/laba_kotor termuat.",
+                                           "command":  "waitForElementVisible",
+                                           "target":  "css=#table_laba",
+                                           "targets":  [
+
+                                                       ],
+                                           "value":  "10000"
+                                       },
+                                       {
+                                           "id":  "aa000000-0000-4000-8000-000000000094",
+                                           "comment":  "",
+                                           "command":  "open",
+                                           "target":  "apps/admin/?page=laporan/produk_terlaris",
+                                           "targets":  [
+
+                                                       ],
+                                           "value":  ""
+                                       },
+                                       {
+                                           "id":  "aa000000-0000-4000-8000-000000000095",
+                                           "comment":  "Pastikan modul apps/admin/?page=laporan/produk_terlaris termuat.",
+                                           "command":  "waitForElementVisible",
+                                           "target":  "css=#table_terlaris",
+                                           "targets":  [
+
+                                                       ],
+                                           "value":  "10000"
+                                       },
+                                       {
+                                           "id":  "aa000000-0000-4000-8000-000000000096",
+                                           "comment":  "",
+                                           "command":  "open",
+                                           "target":  "apps/admin/?page=laporan/setoran_kasir",
+                                           "targets":  [
+
+                                                       ],
+                                           "value":  ""
+                                       },
+                                       {
+                                           "id":  "aa000000-0000-4000-8000-000000000097",
+                                           "comment":  "Pastikan modul apps/admin/?page=laporan/setoran_kasir termuat.",
+                                           "command":  "waitForElementVisible",
+                                           "target":  "css=#table_kasir",
+                                           "targets":  [
+
+                                                       ],
+                                           "value":  "10000"
+                                       },
+                                       {
+                                           "id":  "aa000000-0000-4000-8000-000000000098",
+                                           "comment":  "",
+                                           "command":  "open",
+                                           "target":  "apps/admin/?page=laporan/profit_penjualan",
+                                           "targets":  [
+
+                                                       ],
+                                           "value":  ""
+                                       },
+                                       {
+                                           "id":  "aa000000-0000-4000-8000-000000000099",
+                                           "comment":  "Pastikan modul apps/admin/?page=laporan/profit_penjualan termuat.",
+                                           "command":  "waitForElementVisible",
+                                           "target":  "css=#table_profit",
+                                           "targets":  [
+
+                                                       ],
+                                           "value":  "10000"
+                                       }
+                                   ]
+                  },
+                  {
+                      "id":  "bb000000-0000-4000-8000-000000000007",
+                      "name":  "ALL-06 Laporan Poin dan Reward",
+                      "commands":  [
+                                       {
+                                           "id":  "aa000000-0000-4000-8000-000000000100",
+                                           "comment":  "Reset sesi agar tiap test dapat dijalankan sendiri.",
+                                           "command":  "open",
+                                           "target":  "apps/classes/Login.php?f=logout",
+                                           "targets":  [
+
+                                                       ],
+                                           "value":  ""
+                                       },
+                                       {
+                                           "id":  "aa000000-0000-4000-8000-000000000101",
+                                           "comment":  "",
+                                           "command":  "open",
+                                           "target":  "apps/admin/login.php",
+                                           "targets":  [
+
+                                                       ],
+                                           "value":  ""
+                                       },
+                                       {
+                                           "id":  "aa000000-0000-4000-8000-000000000103",
+                                           "comment":  "",
+                                           "command":  "type",
+                                           "target":  "css=input[name=\"username\"]",
+                                           "targets":  [
+
+                                                       ],
+                                           "value":  "admin"
+                                       },
+                                       {
+                                           "id":  "aa000000-0000-4000-8000-000000000104",
+                                           "comment":  "",
+                                           "command":  "type",
+                                           "target":  "css=#passwordInput",
+                                           "targets":  [
+
+                                                       ],
+                                           "value":  "CHANGE_ME"
+                                       },
+                                       {
+                                           "id":  "aa000000-0000-4000-8000-000000000105",
+                                           "comment":  "",
+                                           "command":  "click",
+                                           "target":  "css=.btn-login",
+                                           "targets":  [
+
+                                                       ],
+                                           "value":  ""
+                                       },
+                                       {
+                                           "id":  "aa000000-0000-4000-8000-000000000106",
+                                           "comment":  "",
+                                           "command":  "waitForElementVisible",
+                                           "target":  "xpath=//h1[normalize-space()=\"Dashboard\"]",
+                                           "targets":  [
+
+                                                       ],
+                                           "value":  "10000"
+                                       },
+                                       {
+                                           "id":  "aa000000-0000-4000-8000-000000000107",
+                                           "comment":  "",
+                                           "command":  "open",
+                                           "target":  "apps/admin/?page=laporan/kartu_poin",
+                                           "targets":  [
+
+                                                       ],
+                                           "value":  ""
+                                       },
+                                       {
+                                           "id":  "aa000000-0000-4000-8000-000000000108",
+                                           "comment":  "Pastikan modul apps/admin/?page=laporan/kartu_poin termuat.",
+                                           "command":  "waitForElementVisible",
+                                           "target":  "css=#cards-container",
+                                           "targets":  [
+
+                                                       ],
+                                           "value":  "10000"
+                                       },
+                                       {
+                                           "id":  "aa000000-0000-4000-8000-000000000109",
+                                           "comment":  "",
+                                           "command":  "open",
+                                           "target":  "apps/admin/?page=laporan/rekap_poin",
+                                           "targets":  [
+
+                                                       ],
+                                           "value":  ""
+                                       },
+                                       {
+                                           "id":  "aa000000-0000-4000-8000-000000000110",
+                                           "comment":  "Pastikan modul apps/admin/?page=laporan/rekap_poin termuat.",
+                                           "command":  "waitForElementVisible",
+                                           "target":  "css=#table_rekap",
+                                           "targets":  [
+
+                                                       ],
+                                           "value":  "10000"
+                                       },
+                                       {
+                                           "id":  "aa000000-0000-4000-8000-000000000111",
+                                           "comment":  "",
+                                           "command":  "open",
+                                           "target":  "apps/admin/?page=laporan/rekap_harian",
+                                           "targets":  [
+
+                                                       ],
+                                           "value":  ""
+                                       },
+                                       {
+                                           "id":  "aa000000-0000-4000-8000-000000000112",
+                                           "comment":  "Pastikan modul apps/admin/?page=laporan/rekap_harian termuat.",
+                                           "command":  "waitForElementVisible",
+                                           "target":  "css=#table_rekap",
+                                           "targets":  [
+
+                                                       ],
+                                           "value":  "10000"
+                                       },
+                                       {
+                                           "id":  "aa000000-0000-4000-8000-000000000113",
+                                           "comment":  "",
+                                           "command":  "open",
+                                           "target":  "apps/admin/?page=laporan/tukar_poin",
+                                           "targets":  [
+
+                                                       ],
+                                           "value":  ""
+                                       },
+                                       {
+                                           "id":  "aa000000-0000-4000-8000-000000000114",
+                                           "comment":  "Pastikan modul apps/admin/?page=laporan/tukar_poin termuat.",
+                                           "command":  "waitForElementVisible",
+                                           "target":  "css=#table_tukar",
+                                           "targets":  [
+
+                                                       ],
+                                           "value":  "10000"
+                                       },
+                                       {
+                                           "id":  "aa000000-0000-4000-8000-000000000115",
+                                           "comment":  "",
+                                           "command":  "open",
+                                           "target":  "apps/admin/?page=laporan/ranking_point",
+                                           "targets":  [
+
+                                                       ],
+                                           "value":  ""
+                                       },
+                                       {
+                                           "id":  "aa000000-0000-4000-8000-000000000116",
+                                           "comment":  "Pastikan modul apps/admin/?page=laporan/ranking_point termuat.",
+                                           "command":  "waitForElementVisible",
+                                           "target":  "css=#table-ranking",
+                                           "targets":  [
+
+                                                       ],
+                                           "value":  "10000"
+                                       },
+                                       {
+                                           "id":  "aa000000-0000-4000-8000-000000000117",
+                                           "comment":  "",
+                                           "command":  "open",
+                                           "target":  "apps/admin/?page=laporan/rekap_point_member",
+                                           "targets":  [
+
+                                                       ],
+                                           "value":  ""
+                                       },
+                                       {
+                                           "id":  "aa000000-0000-4000-8000-000000000118",
+                                           "comment":  "Pastikan modul apps/admin/?page=laporan/rekap_point_member termuat.",
+                                           "command":  "waitForElementVisible",
+                                           "target":  "css=#table_member_points",
+                                           "targets":  [
+
+                                                       ],
+                                           "value":  "10000"
+                                       }
+                                   ]
+                  },
+                  {
+                      "id":  "bb000000-0000-4000-8000-000000000008",
+                      "name":  "ALL-07 Pengaturan dan Audit",
+                      "commands":  [
+                                       {
+                                           "id":  "aa000000-0000-4000-8000-000000000119",
+                                           "comment":  "Reset sesi agar tiap test dapat dijalankan sendiri.",
+                                           "command":  "open",
+                                           "target":  "apps/classes/Login.php?f=logout",
+                                           "targets":  [
+
+                                                       ],
+                                           "value":  ""
+                                       },
+                                       {
+                                           "id":  "aa000000-0000-4000-8000-000000000120",
+                                           "comment":  "",
+                                           "command":  "open",
+                                           "target":  "apps/admin/login.php",
+                                           "targets":  [
+
+                                                       ],
+                                           "value":  ""
+                                       },
+                                       {
+                                           "id":  "aa000000-0000-4000-8000-000000000122",
+                                           "comment":  "",
+                                           "command":  "type",
+                                           "target":  "css=input[name=\"username\"]",
+                                           "targets":  [
+
+                                                       ],
+                                           "value":  "admin"
+                                       },
+                                       {
+                                           "id":  "aa000000-0000-4000-8000-000000000123",
+                                           "comment":  "",
+                                           "command":  "type",
+                                           "target":  "css=#passwordInput",
+                                           "targets":  [
+
+                                                       ],
+                                           "value":  "CHANGE_ME"
+                                       },
+                                       {
+                                           "id":  "aa000000-0000-4000-8000-000000000124",
+                                           "comment":  "",
+                                           "command":  "click",
+                                           "target":  "css=.btn-login",
+                                           "targets":  [
+
+                                                       ],
+                                           "value":  ""
+                                       },
+                                       {
+                                           "id":  "aa000000-0000-4000-8000-000000000125",
+                                           "comment":  "",
+                                           "command":  "waitForElementVisible",
+                                           "target":  "xpath=//h1[normalize-space()=\"Dashboard\"]",
+                                           "targets":  [
+
+                                                       ],
+                                           "value":  "10000"
+                                       },
+                                       {
+                                           "id":  "aa000000-0000-4000-8000-000000000126",
+                                           "comment":  "",
+                                           "command":  "open",
+                                           "target":  "apps/admin/?page=system_info",
+                                           "targets":  [
+
+                                                       ],
+                                           "value":  ""
+                                       },
+                                       {
+                                           "id":  "aa000000-0000-4000-8000-000000000127",
+                                           "comment":  "Pastikan modul apps/admin/?page=system_info termuat.",
+                                           "command":  "waitForElementVisible",
+                                           "target":  "css=#system-frm",
+                                           "targets":  [
+
+                                                       ],
+                                           "value":  "10000"
+                                       },
+                                       {
+                                           "id":  "aa000000-0000-4000-8000-000000000128",
+                                           "comment":  "",
+                                           "command":  "open",
+                                           "target":  "apps/admin/?page=log-aktivitas",
+                                           "targets":  [
+
+                                                       ],
+                                           "value":  ""
+                                       },
+                                       {
+                                           "id":  "aa000000-0000-4000-8000-000000000129",
+                                           "comment":  "Pastikan modul apps/admin/?page=log-aktivitas termuat.",
+                                           "command":  "waitForElementVisible",
+                                           "target":  "css=#filter-date-from",
+                                           "targets":  [
+
+                                                       ],
+                                           "value":  "10000"
+                                       },
+                                       {
+                                           "id":  "aa000000-0000-4000-8000-000000000130",
+                                           "comment":  "",
+                                           "command":  "open",
+                                           "target":  "apps/admin/?page=pengaturan/index\u0026subpage=point_settings",
+                                           "targets":  [
+
+                                                       ],
+                                           "value":  ""
+                                       },
+                                       {
+                                           "id":  "aa000000-0000-4000-8000-000000000131",
+                                           "comment":  "Pastikan modul apps/admin/?page=pengaturan/index\u0026subpage=point_settings termuat.",
+                                           "command":  "waitForElementVisible",
+                                           "target":  "css=#settingsContainer",
+                                           "targets":  [
+
+                                                       ],
+                                           "value":  "10000"
+                                       },
+                                       {
+                                           "id":  "aa000000-0000-4000-8000-000000000132",
+                                           "comment":  "",
+                                           "command":  "open",
+                                           "target":  "apps/admin/?page=pengaturan/index\u0026subpage=reward_items",
+                                           "targets":  [
+
+                                                       ],
+                                           "value":  ""
+                                       },
+                                       {
+                                           "id":  "aa000000-0000-4000-8000-000000000133",
+                                           "comment":  "Pastikan modul apps/admin/?page=pengaturan/index\u0026subpage=reward_items termuat.",
+                                           "command":  "waitForElementVisible",
+                                           "target":  "css=#formReward",
+                                           "targets":  [
+
+                                                       ],
+                                           "value":  "10000"
+                                       }
+                                   ]
+                  },
+                  {
+                      "id":  "bb000000-0000-4000-8000-000000000009",
+                      "name":  "ALL-08 Modal Pembayaran Kasir",
+                      "commands":  [
+                                       {
+                                           "id":  "aa000000-0000-4000-8000-000000000134",
+                                           "comment":  "Reset sesi agar tiap test dapat dijalankan sendiri.",
+                                           "command":  "open",
+                                           "target":  "apps/classes/Login.php?f=logout",
+                                           "targets":  [
+
+                                                       ],
+                                           "value":  ""
+                                       },
+                                       {
+                                           "id":  "aa000000-0000-4000-8000-000000000135",
+                                           "comment":  "",
+                                           "command":  "open",
+                                           "target":  "apps/admin/login.php",
+                                           "targets":  [
+
+                                                       ],
+                                           "value":  ""
+                                       },
+                                       {
+                                           "id":  "aa000000-0000-4000-8000-000000000137",
+                                           "comment":  "",
+                                           "command":  "type",
+                                           "target":  "css=input[name=\"username\"]",
+                                           "targets":  [
+
+                                                       ],
+                                           "value":  "admin"
+                                       },
+                                       {
+                                           "id":  "aa000000-0000-4000-8000-000000000138",
+                                           "comment":  "",
+                                           "command":  "type",
+                                           "target":  "css=#passwordInput",
+                                           "targets":  [
+
+                                                       ],
+                                           "value":  "CHANGE_ME"
+                                       },
+                                       {
+                                           "id":  "aa000000-0000-4000-8000-000000000139",
+                                           "comment":  "",
+                                           "command":  "click",
+                                           "target":  "css=.btn-login",
+                                           "targets":  [
+
+                                                       ],
+                                           "value":  ""
+                                       },
+                                       {
+                                           "id":  "aa000000-0000-4000-8000-000000000140",
+                                           "comment":  "",
+                                           "command":  "waitForElementVisible",
+                                           "target":  "xpath=//h1[normalize-space()=\"Dashboard\"]",
+                                           "targets":  [
+
+                                                       ],
+                                           "value":  "10000"
+                                       },
+                                       {
+                                           "id":  "aa000000-0000-4000-8000-000000000141",
+                                           "comment":  "",
+                                           "command":  "open",
+                                           "target":  "apps/admin/?page=penjualan/kasir",
+                                           "targets":  [
+
+                                                       ],
+                                           "value":  ""
+                                       },
+                                       {
+                                           "id":  "aa000000-0000-4000-8000-000000000142",
+                                           "comment":  "Pastikan modul apps/admin/?page=penjualan/kasir termuat.",
+                                           "command":  "waitForElementVisible",
+                                           "target":  "css=#kasirPaymentModal",
+                                           "targets":  [
+
+                                                       ],
+                                           "value":  "10000"
+                                       },
+                                       {
+                                           "id":  "aa000000-0000-4000-8000-000000000143",
+                                           "comment":  "",
+                                           "command":  "open",
+                                           "target":  "apps/admin/?page=penjualan/kasir",
+                                           "targets":  [
+
+                                                       ],
+                                           "value":  ""
+                                       },
+                                       {
+                                           "id":  "aa000000-0000-4000-8000-000000000144",
+                                           "comment":  "Pastikan modul apps/admin/?page=penjualan/kasir termuat.",
+                                           "command":  "waitForElementVisible",
+                                           "target":  "css=#modal_amount_paid",
+                                           "targets":  [
+
+                                                       ],
+                                           "value":  "10000"
+                                       },
+                                       {
+                                           "id":  "aa000000-0000-4000-8000-000000000145",
+                                           "comment":  "",
+                                           "command":  "open",
+                                           "target":  "apps/admin/?page=penjualan/kasir",
+                                           "targets":  [
+
+                                                       ],
+                                           "value":  ""
+                                       },
+                                       {
+                                           "id":  "aa000000-0000-4000-8000-000000000146",
+                                           "comment":  "Pastikan modul apps/admin/?page=penjualan/kasir termuat.",
+                                           "command":  "waitForElementVisible",
+                                           "target":  "css=#modal_btn_save",
+                                           "targets":  [
+
+                                                       ],
+                                           "value":  "10000"
+                                       },
+                                       {
+                                           "id":  "aa000000-0000-4000-8000-000000000147",
+                                           "comment":  "",
+                                           "command":  "open",
+                                           "target":  "apps/admin/?page=penjualan/kasir",
+                                           "targets":  [
+
+                                                       ],
+                                           "value":  ""
+                                       },
+                                       {
+                                           "id":  "aa000000-0000-4000-8000-000000000148",
+                                           "comment":  "Pastikan modul apps/admin/?page=penjualan/kasir termuat.",
+                                           "command":  "waitForElementVisible",
+                                           "target":  "css=#modal_btn_save_print",
+                                           "targets":  [
+
+                                                       ],
+                                           "value":  "10000"
+                                       }
+                                   ]
+                  }
+              ],
+    "suites":  [
+                   {
+                       "id":  "cc000000-0000-4000-8000-000000000001",
+                       "name":  "All Features Smoke",
+                       "persistSession":  false,
+                       "parallel":  false,
+                       "timeout":  300,
+                       "tests":  [
+                                     "bb000000-0000-4000-8000-000000000001",
+                                     "bb000000-0000-4000-8000-000000000002",
+                                     "bb000000-0000-4000-8000-000000000003",
+                                     "bb000000-0000-4000-8000-000000000004",
+                                     "bb000000-0000-4000-8000-000000000005",
+                                     "bb000000-0000-4000-8000-000000000006",
+                                     "bb000000-0000-4000-8000-000000000007",
+                                     "bb000000-0000-4000-8000-000000000008",
+                                     "bb000000-0000-4000-8000-000000000009"
+                                 ]
+                   }
+               ],
+    "urls":  [
+                 "http://localhost/sarinah-apps/"
+             ],
+    "plugins":  [
+
+                ]
+}
+

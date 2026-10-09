@@ -1,0 +1,137 @@
+/**
+ * ==========================================================
+ *  FILE: assets/css/print-menu.css
+ *  DESCRIPTION: Custom CSS untuk dropdown menu print
+ *  AUTHOR: System
+ * ==========================================================
+ */
+
+/* Table Responsive - prevent overflow cutting dropdown */
+.table-responsive {
+  overflow: visible !important;
+}
+
+/* Table styling to allow dropdown */
+.table {
+  margin-bottom: 0;
+}
+
+.table tbody tr {
+  position: relative;
+}
+
+/* Action Buttons Container */
+td .dropdown {
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 5px;
+  position: static;
+}
+
+/* Button Styling */
+td .btn {
+  padding: 0.375rem 0.75rem;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  border-radius: 0.25rem;
+  margin-right: 5px;
+  vertical-align: middle;
+}
+
+td .btn:last-child {
+  margin-right: 0;
+}
+
+td .btn i {
+  font-size: 1rem;
+}
+
+/* Dropdown Toggle */
+.dropdown-toggle::after {
+  margin-left: 0.5rem;
+  vertical-align: middle;
+}
+
+/* Dropdown Menu Print Styling */
+.dropdown-menu {
+  min-width: 250px;
+  padding: 0.5rem 0;
+  border-radius: 0.5rem;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+  z-index: 1050 !important;
+  position: absolute !important;
+}
+
+.dropdown-item {
+  padding: 0.5rem 1rem;
+  font-size: 0.95rem;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+}
+
+.dropdown-item:hover {
+  background-color: #f3f4f6;
+  color: #1f2937;
+  transform: translateX(3px);
+}
+
+.dropdown-item i {
+  width: 24px;
+  font-size: 1.1rem;
+  display: inline-block;
+}
+
+.dropdown-divider {
+  margin: 0.5rem 0;
+  border-top: 1px solid #e5e7eb;
+}
+
+/* Content spacing */
+#kt_post {
+  padding-top: 20px;
+  padding-bottom: 40px;
+}
+
+/* Card spacing */
+.card {
+  margin-bottom: 20px;
+}
+
+.card-footer {
+  padding: 1rem 1.5rem;
+  background-color: #f9fafb;
+}
+
+/* Icon styling */
+.bi-usb-symbol {
+  color: #3b82f6;
+}
+
+.bi-bluetooth {
+  color: #2563eb;
+}
+
+.bi-window {
+  color: #06b6d4;
+}
+
+.bi-file-earmark-text {
+  color: #059669;
+}
+
+.bi-truck {
+  color: #d97706;
+}
+
+/* Responsive styling */
+@media (max-width: 768px) {
+  .dropdown-menu {
+    min-width: 220px;
+  }
+
+  .dropdown-item {
+    font-size: 0.875rem;
+    padding: 0.4rem 0.8rem;
+  }
+}

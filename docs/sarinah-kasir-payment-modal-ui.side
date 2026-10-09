@@ -1,0 +1,115 @@
+{
+  "id": "b7be83f0-b531-4b4a-bf0f-9255baadd001",
+  "version": "2.0",
+  "name": "Sarinah Kasir - Payment Modal UI",
+  "url": "http://localhost/sarinah-apps/",
+  "tests": [
+    {
+      "id": "e9fe7599-5a3f-42f9-9a9e-2a93cf1da101",
+      "name": "PAYUI-01 Struktur modal pembayaran",
+      "commands": [
+        {"id":"11000000-0000-4000-8000-000000000001","comment":"Reset sesi agar test mandiri.","command":"open","target":"apps/classes/Login.php?f=logout","targets":[],"value":""},
+        {"id":"11000000-0000-4000-8000-000000000002","comment":"","command":"open","target":"apps/admin/login.php","targets":[],"value":""},
+        {"id":"11000000-0000-4000-8000-000000000003","comment":"","command":"type","target":"css=input[name=\"username\"]","targets":[],"value":"admin"},
+        {"id":"11000000-0000-4000-8000-000000000004","comment":"Isi CHANGE_ME dengan password akun testing lokal sebelum menjalankan test.","command":"type","target":"css=#passwordInput","targets":[],"value":"CHANGE_ME"},
+        {"id":"11000000-0000-4000-8000-000000000005","comment":"","command":"click","target":"css=.btn-login","targets":[],"value":""},
+        {"id":"11000000-0000-4000-8000-000000000006","comment":"","command":"waitForElementVisible","target":"xpath=//h1[normalize-space()=\"Dashboard\"]","targets":[],"value":"10000"},
+        {"id":"11000000-0000-4000-8000-000000000007","comment":"","command":"open","target":"apps/admin/?page=penjualan/kasir","targets":[],"value":""},
+        {"id":"11000000-0000-4000-8000-000000000008","comment":"","command":"waitForElementVisible","target":"css=#kasir-form","targets":[],"value":"10000"},
+        {"id":"11000000-0000-4000-8000-000000000009","comment":"Modal dibuka untuk menguji UI. Nilai total simulasi tidak membuat transaksi.","command":"executeScript","target":"document.querySelector('#sale_total').value='12000'; document.querySelector('#modal_amount_paid').value='0'; bootstrap.Modal.getOrCreateInstance(document.querySelector('#kasirPaymentModal')).show();","targets":[],"value":""},
+        {"id":"11000000-0000-4000-8000-000000000010","comment":"","command":"waitForElementVisible","target":"css=#kasirPaymentModal.show","targets":[],"value":"5000"},
+        {"id":"11000000-0000-4000-8000-000000000011","comment":"","command":"assertText","target":"css=#kasirPaymentModalLabel","targets":[],"value":"Konfirmasi Pembayaran"},
+        {"id":"11000000-0000-4000-8000-000000000012","comment":"","command":"assertElementPresent","target":"css=#modal_amount_paid","targets":[],"value":""},
+        {"id":"11000000-0000-4000-8000-000000000013","comment":"","command":"assertElementPresent","target":"css=#modal_btn_cancel","targets":[],"value":""},
+        {"id":"11000000-0000-4000-8000-000000000014","comment":"","command":"assertElementPresent","target":"css=#modal_btn_save","targets":[],"value":""},
+        {"id":"11000000-0000-4000-8000-000000000015","comment":"","command":"assertElementPresent","target":"css=#modal_btn_save_print","targets":[],"value":""}
+      ]
+    },
+    {
+      "id": "2d1671c8-1e5e-4a24-9d20-a205c4dda102",
+      "name": "PAYUI-02 Metode pembayaran",
+      "commands": [
+        {"id":"12000000-0000-4000-8000-000000000001","comment":"","command":"open","target":"apps/classes/Login.php?f=logout","targets":[],"value":""},
+        {"id":"12000000-0000-4000-8000-000000000002","comment":"","command":"open","target":"apps/admin/login.php","targets":[],"value":""},
+        {"id":"12000000-0000-4000-8000-000000000003","comment":"","command":"type","target":"css=input[name=\"username\"]","targets":[],"value":"admin"},
+        {"id":"12000000-0000-4000-8000-000000000004","comment":"Isi CHANGE_ME dengan password akun testing lokal sebelum menjalankan test.","command":"type","target":"css=#passwordInput","targets":[],"value":"CHANGE_ME"},
+        {"id":"12000000-0000-4000-8000-000000000005","comment":"","command":"click","target":"css=.btn-login","targets":[],"value":""},
+        {"id":"12000000-0000-4000-8000-000000000006","comment":"","command":"waitForElementVisible","target":"xpath=//h1[normalize-space()=\"Dashboard\"]","targets":[],"value":"10000"},
+        {"id":"12000000-0000-4000-8000-000000000007","comment":"","command":"open","target":"apps/admin/?page=penjualan/kasir","targets":[],"value":""},
+        {"id":"12000000-0000-4000-8000-000000000008","comment":"","command":"waitForElementVisible","target":"css=#kasir-form","targets":[],"value":"10000"},
+        {"id":"12000000-0000-4000-8000-000000000009","comment":"","command":"executeScript","target":"document.querySelector('#sale_total').value='12000'; bootstrap.Modal.getOrCreateInstance(document.querySelector('#kasirPaymentModal')).show();","targets":[],"value":""},
+        {"id":"12000000-0000-4000-8000-000000000010","comment":"","command":"waitForElementVisible","target":"css=#kasirPaymentModal.show","targets":[],"value":"5000"},
+        {"id":"12000000-0000-4000-8000-000000000011","comment":"","command":"click","target":"css=label[for=\"modal_method_tunai\"]","targets":[],"value":""},
+        {"id":"12000000-0000-4000-8000-000000000012","comment":"","command":"assertElementPresent","target":"css=#modal_method_tunai:checked","targets":[],"value":""},
+        {"id":"12000000-0000-4000-8000-000000000013","comment":"","command":"assertText","target":"css=#modal_payment_method","targets":[],"value":"Tunai"},
+        {"id":"12000000-0000-4000-8000-000000000014","comment":"","command":"click","target":"css=label[for=\"modal_method_debit\"]","targets":[],"value":""},
+        {"id":"12000000-0000-4000-8000-000000000015","comment":"","command":"assertElementPresent","target":"css=#modal_method_debit:checked","targets":[],"value":""},
+        {"id":"12000000-0000-4000-8000-000000000016","comment":"","command":"assertText","target":"css=#modal_payment_method","targets":[],"value":"Kartu Debit"},
+        {"id":"12000000-0000-4000-8000-000000000017","comment":"","command":"click","target":"css=label[for=\"modal_method_credit\"]","targets":[],"value":""},
+        {"id":"12000000-0000-4000-8000-000000000018","comment":"","command":"assertText","target":"css=#modal_payment_method","targets":[],"value":"Kartu Kredit"},
+        {"id":"12000000-0000-4000-8000-000000000019","comment":"","command":"click","target":"css=label[for=\"modal_method_qris\"]","targets":[],"value":""},
+        {"id":"12000000-0000-4000-8000-000000000020","comment":"","command":"assertText","target":"css=#modal_payment_method","targets":[],"value":"QRIS"},
+        {"id":"12000000-0000-4000-8000-000000000021","comment":"","command":"click","target":"css=label[for=\"modal_method_ewallet\"]","targets":[],"value":""},
+        {"id":"12000000-0000-4000-8000-000000000022","comment":"","command":"assertElementPresent","target":"css=#modal_method_ewallet:checked","targets":[],"value":""},
+        {"id":"12000000-0000-4000-8000-000000000023","comment":"","command":"assertText","target":"css=#modal_payment_method","targets":[],"value":"E-Wallet"}
+      ]
+    },
+    {
+      "id": "80d2b1b8-4bce-4a5c-b642-4778d5fea103",
+      "name": "PAYUI-03 Nominal pas dan kembalian",
+      "commands": [
+        {"id":"13000000-0000-4000-8000-000000000001","comment":"","command":"open","target":"apps/classes/Login.php?f=logout","targets":[],"value":""},
+        {"id":"13000000-0000-4000-8000-000000000002","comment":"","command":"open","target":"apps/admin/login.php","targets":[],"value":""},
+        {"id":"13000000-0000-4000-8000-000000000003","comment":"","command":"type","target":"css=input[name=\"username\"]","targets":[],"value":"admin"},
+        {"id":"13000000-0000-4000-8000-000000000004","comment":"Isi CHANGE_ME dengan password akun testing lokal sebelum menjalankan test.","command":"type","target":"css=#passwordInput","targets":[],"value":"CHANGE_ME"},
+        {"id":"13000000-0000-4000-8000-000000000005","comment":"","command":"click","target":"css=.btn-login","targets":[],"value":""},
+        {"id":"13000000-0000-4000-8000-000000000006","comment":"","command":"waitForElementVisible","target":"xpath=//h1[normalize-space()=\"Dashboard\"]","targets":[],"value":"10000"},
+        {"id":"13000000-0000-4000-8000-000000000007","comment":"","command":"open","target":"apps/admin/?page=penjualan/kasir","targets":[],"value":""},
+        {"id":"13000000-0000-4000-8000-000000000008","comment":"","command":"waitForElementVisible","target":"css=#kasir-form","targets":[],"value":"10000"},
+        {"id":"13000000-0000-4000-8000-000000000009","comment":"","command":"executeScript","target":"document.querySelector('#sale_total').value='12000'; bootstrap.Modal.getOrCreateInstance(document.querySelector('#kasirPaymentModal')).show();","targets":[],"value":""},
+        {"id":"13000000-0000-4000-8000-000000000010","comment":"","command":"waitForElementVisible","target":"css=#kasirPaymentModal.show","targets":[],"value":"5000"},
+        {"id":"13000000-0000-4000-8000-000000000011","comment":"","command":"type","target":"css=#modal_amount_paid","targets":[],"value":"12000"},
+        {"id":"13000000-0000-4000-8000-000000000012","comment":"","command":"assertText","target":"css=#modal_payment_display","targets":[],"value":"Rp 12.000"},
+        {"id":"13000000-0000-4000-8000-000000000013","comment":"","command":"assertText","target":"css=#modal_change_display","targets":[],"value":"Rp 0"},
+        {"id":"13000000-0000-4000-8000-000000000014","comment":"","command":"type","target":"css=#modal_amount_paid","targets":[],"value":"20000"},
+        {"id":"13000000-0000-4000-8000-000000000015","comment":"","command":"assertText","target":"css=#modal_payment_display","targets":[],"value":"Rp 20.000"},
+        {"id":"13000000-0000-4000-8000-000000000016","comment":"","command":"assertText","target":"css=#modal_change_display","targets":[],"value":"Rp 8.000"}
+      ]
+    },
+    {
+      "id": "517da34f-7f39-4710-af48-6e3fbf1fa104",
+      "name": "PAYUI-04 Batal menutup modal",
+      "commands": [
+        {"id":"14000000-0000-4000-8000-000000000001","comment":"","command":"open","target":"apps/classes/Login.php?f=logout","targets":[],"value":""},
+        {"id":"14000000-0000-4000-8000-000000000002","comment":"","command":"open","target":"apps/admin/login.php","targets":[],"value":""},
+        {"id":"14000000-0000-4000-8000-000000000003","comment":"","command":"type","target":"css=input[name=\"username\"]","targets":[],"value":"admin"},
+        {"id":"14000000-0000-4000-8000-000000000004","comment":"Isi CHANGE_ME dengan password akun testing lokal sebelum menjalankan test.","command":"type","target":"css=#passwordInput","targets":[],"value":"CHANGE_ME"},
+        {"id":"14000000-0000-4000-8000-000000000005","comment":"","command":"click","target":"css=.btn-login","targets":[],"value":""},
+        {"id":"14000000-0000-4000-8000-000000000006","comment":"","command":"waitForElementVisible","target":"xpath=//h1[normalize-space()=\"Dashboard\"]","targets":[],"value":"10000"},
+        {"id":"14000000-0000-4000-8000-000000000007","comment":"","command":"open","target":"apps/admin/?page=penjualan/kasir","targets":[],"value":""},
+        {"id":"14000000-0000-4000-8000-000000000008","comment":"","command":"waitForElementVisible","target":"css=#kasir-form","targets":[],"value":"10000"},
+        {"id":"14000000-0000-4000-8000-000000000009","comment":"","command":"executeScript","target":"document.querySelector('#sale_total').value='12000'; bootstrap.Modal.getOrCreateInstance(document.querySelector('#kasirPaymentModal')).show();","targets":[],"value":""},
+        {"id":"14000000-0000-4000-8000-000000000010","comment":"","command":"waitForElementVisible","target":"css=#kasirPaymentModal.show","targets":[],"value":"5000"},
+        {"id":"14000000-0000-4000-8000-000000000011","comment":"","command":"click","target":"css=#modal_btn_cancel","targets":[],"value":""},
+        {"id":"14000000-0000-4000-8000-000000000012","comment":"Modal tetap ada di DOM namun kelas .show harus hilang.","command":"assertElementPresent","target":"css=#kasirPaymentModal:not(.show)","targets":[],"value":""}
+      ]
+    }
+  ],
+  "suites": [
+    {
+      "id": "a63a0f6e-9eaf-45e1-ab68-58b1da0ea105",
+      "name": "Kasir Payment Modal UI",
+      "persistSession": false,
+      "parallel": false,
+      "timeout": 300,
+      "tests": [
+        "e9fe7599-5a3f-42f9-9a9e-2a93cf1da101",
+        "2d1671c8-1e5e-4a24-9d20-a205c4dda102",
+        "80d2b1b8-4bce-4a5c-b642-4778d5fea103",
+        "517da34f-7f39-4710-af48-6e3fbf1fa104"
+      ]
+    }
+  ],
+  "urls": ["http://localhost/sarinah-apps/"],
+  "plugins": []
+}

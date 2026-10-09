@@ -1,0 +1,459 @@
+/**
+ * ==========================================================
+ *  FILE: assets/css/kasir-pos.css
+ *  DESCRIPTION: Stylesheet untuk Penjualan Kasir & POS
+ *  AUTHOR: System
+ * ==========================================================
+ */
+
+/* ========================================
+   Product Grid Styles
+======================================== */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 10px;
+  max-height: 500px;
+  overflow-y: auto;
+  padding: 10px 0;
+}
+
+.product-item {
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 12px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-align: center;
+}
+
+.product-item:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  border-color: #1e88e5;
+}
+
+.product-code {
+  font-size: 0.75rem;
+  color: #666;
+  font-weight: 500;
+  margin-bottom: 5px;
+}
+
+.product-name {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 8px;
+  min-height: 36px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.product-details {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.8rem;
+  margin-top: 8px;
+  padding-top: 8px;
+  border-top: 1px solid #f0f0f0;
+}
+
+.product-price {
+  color: #1e88e5;
+  font-weight: bold;
+}
+
+.product-stock {
+  color: #666;
+  font-size: 0.75rem;
+}
+
+/* ========================================
+   Cart Table Styles
+======================================== */
+#cart_table {
+  font-size: 0.85rem;
+}
+
+#cart_table thead {
+  background: #f8f9fa;
+}
+
+#cart_table tbody tr {
+  transition: background-color 0.2s;
+}
+
+#cart_table tbody tr:hover {
+  background-color: #f8f9fa;
+}
+
+#cart_table .input-group-sm .btn {
+  padding: 0.25rem 0.5rem;
+  font-size: 0.75rem;
+}
+
+#cart_table .input-group-sm input {
+  padding: 0.25rem;
+  font-size: 0.8rem;
+}
+
+/* ========================================
+   Summary Section
+======================================== */
+.summary-section {
+  background: #f8f9fa;
+  padding: 15px;
+  border-radius: 8px;
+}
+
+.summary-section .row {
+  font-size: 0.95rem;
+}
+
+#grand_total {
+  font-size: 1.5rem !important;
+}
+
+/* ========================================
+   Payment Section
+======================================== */
+.payment-section {
+  background: #fafafa;
+  padding: 15px;
+  border-radius: 8px;
+}
+
+.payment-section .btn-check:checked + .btn {
+  background-color: #1e88e5 !important;
+  color: white !important;
+  border-color: #1e88e5 !important;
+}
+
+#payment_amount {
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-align: right;
+}
+
+#change_amount {
+  font-size: 1.1rem;
+}
+
+.payment-section .btn[data-amount],
+.payment-section #btn_exact {
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+/* ========================================
+   POS Bottom Navigation
+======================================== */
+.pos-bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.pos-bottom-nav .form-control {
+  border-color: #495057;
+}
+
+.pos-bottom-nav .form-control:focus {
+  background-color: #343a40;
+  border-color: #6c757d;
+  color: white;
+}
+
+.pos-bottom-nav .badge {
+  padding: 0.5rem 0.75rem;
+}
+
+/* ========================================
+   Filter Section
+======================================== */
+.filter-section .form-select,
+.filter-section .form-control {
+  font-size: 0.9rem;
+}
+
+/* ========================================
+   Table Styles
+======================================== */
+#kasir_table {
+  font-size: 0.85rem;
+}
+
+#kasir_table thead th {
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  letter-spacing: 0.5px;
+  padding: 12px 8px;
+}
+
+#kasir_table tbody td {
+  padding: 10px 8px;
+  vertical-align: middle;
+}
+
+#kasir_table .badge {
+  font-size: 0.7rem;
+  padding: 0.35rem 0.6rem;
+}
+
+/* ========================================
+   Action Buttons
+======================================== */
+.btn-icon {
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-icon i {
+  font-size: 0.9rem;
+}
+
+/* ========================================
+   Category Tabs
+======================================== */
+#category_tabs .btn {
+  font-size: 0.8rem;
+  padding: 0.5rem 0.75rem;
+  flex: 1;
+}
+
+#category_tabs .btn.active {
+  background-color: #1e88e5;
+  color: white;
+  border-color: #1e88e5;
+}
+
+/* ========================================
+   Responsive Design
+======================================== */
+@media (max-width: 992px) {
+  .product-grid {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    max-height: 400px;
+  }
+
+  .pos-bottom-nav {
+    position: relative;
+    margin-top: 20px;
+  }
+
+  #cart_table {
+    font-size: 0.75rem;
+  }
+
+  .payment-section {
+    margin-top: 15px;
+  }
+}
+
+@media (max-width: 768px) {
+  .product-grid {
+    grid-template-columns: repeat(2, 1fr);
+    max-height: 350px;
+  }
+
+  .product-item {
+    padding: 8px;
+  }
+
+  .product-name {
+    font-size: 0.8rem;
+    min-height: 32px;
+  }
+
+  #category_tabs .btn {
+    font-size: 0.7rem;
+    padding: 0.4rem 0.5rem;
+  }
+
+  .payment-section .btn[data-amount] {
+    font-size: 0.75rem;
+  }
+}
+
+/* ========================================
+   Print Styles
+======================================== */
+@media print {
+  .toolbar,
+  .pos-bottom-nav,
+  .btn,
+  .card-toolbar,
+  .filter-section {
+    display: none !important;
+  }
+
+  .card {
+    box-shadow: none !important;
+    border: 1px solid #ddd !important;
+  }
+
+  #cart_table .input-group {
+    display: none !important;
+  }
+
+  #cart_table tbody td:nth-child(4) {
+    text-align: center !important;
+  }
+}
+
+/* ========================================
+   Scrollbar Styles
+======================================== */
+.product-grid::-webkit-scrollbar,
+.table-responsive::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.product-grid::-webkit-scrollbar-track,
+.table-responsive::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 4px;
+}
+
+.product-grid::-webkit-scrollbar-thumb,
+.table-responsive::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 4px;
+}
+
+.product-grid::-webkit-scrollbar-thumb:hover,
+.table-responsive::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/* ========================================
+   Loading Animation
+======================================== */
+.spinner-border-sm {
+  width: 1rem;
+  height: 1rem;
+  border-width: 0.15em;
+}
+
+/* ========================================
+   Badge Styles
+======================================== */
+.badge-success {
+  background-color: #28a745 !important;
+}
+
+.badge-info {
+  background-color: #17a2b8 !important;
+}
+
+.badge-warning {
+  background-color: #ffc107 !important;
+  color: #000 !important;
+}
+
+.badge-danger {
+  background-color: #dc3545 !important;
+}
+
+/* ========================================
+   Card Hover Effects
+======================================== */
+.card {
+  transition: box-shadow 0.3s ease;
+}
+
+.card:hover {
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* ========================================
+   Form Control Focus
+======================================== */
+.form-control:focus,
+.form-select:focus {
+  border-color: #1e88e5;
+  box-shadow: 0 0 0 0.2rem rgba(30, 136, 229, 0.25);
+}
+
+/* ========================================
+   Pagination
+======================================== */
+.pagination .page-link {
+  color: #1e88e5;
+}
+
+.pagination .page-item.active .page-link {
+  background-color: #1e88e5;
+  border-color: #1e88e5;
+}
+
+.pagination .page-link:hover {
+  color: #1565c0;
+  background-color: #e3f2fd;
+}
+
+/* ========================================
+   Sticky Table Header
+======================================== */
+.sticky-top {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+/* ========================================
+   No Data Message
+======================================== */
+.no-data td {
+  font-style: italic;
+  color: #999;
+}
+
+/* ========================================
+   Alert Messages
+======================================== */
+.alert {
+  border-radius: 8px;
+  font-size: 0.9rem;
+}
+
+/* ========================================
+   Modal Customization
+======================================== */
+.modal-content {
+  border-radius: 12px;
+}
+
+.modal-header {
+  background-color: #f8f9fa;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+}
+
+/* ========================================
+   Custom Checkbox
+======================================== */
+.form-check-input:checked {
+  background-color: #1e88e5;
+  border-color: #1e88e5;
+}
+
+.form-check-input:focus {
+  border-color: #1e88e5;
+  box-shadow: 0 0 0 0.2rem rgba(30, 136, 229, 0.25);
+}

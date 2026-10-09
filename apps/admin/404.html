@@ -1,0 +1,35 @@
+        <!-- Container Fluid-->
+        <div class="container-fluid" id="container-wrapper">
+          <div class="text-center">
+            <div class="form-group d-flex justify-content-center">
+                  <img src="../uploads/404.jpg" alt="" id="cimg" class="img-fluid img-thumbnail">
+            </div>
+            <a href="https://www.freepik.com/free-vector/error-404-concept-landing-page_5060709.htm#query=404%20page&position=5&from_view=keyword" target="_blank">Image by pikisuperstar</a> on Freepik
+            <h3 class="text-gray-800 font-weight-bold">Oopss!</h3>
+            <p class="lead text-gray-800 mx-auto">404 Page Not Found</p>
+            <a href="./">&larr; Back to Dashboard</a>
+          </div>
+        </div>
+        <!---Container Fluid-->
+<script>
+  function displayImg(input,_this) {
+      if (input.files && input.files[0]) {
+          var reader = new FileReader();
+          reader.onload = function (e) {
+            $('#cimg').attr('src', e.target.result);
+            _this.siblings('.custom-file-label').html(input.files[0].name)
+          }
+
+          reader.readAsDataURL(input.files[0]);
+      }
+  }
+</script>
+
+<style>
+  img#cimg{
+    height: 40vh;
+    width: 40vh;
+    object-fit: scale-down;
+    border-radius: 100% 100%;
+  }
+</style>
